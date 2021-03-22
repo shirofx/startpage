@@ -1,0 +1,93 @@
+
+div#settings {
+	position: absolute;
+	right: 130px;
+	top: 40px;
+	z-index: 20;
+	background-color: var(--background-color);
+	border: 1px solid var(--accent-color);
+	box-shadow: 15px 15px 0 var(--accent-color);
+	display: none;
+}
+
+div#settings > div {
+	padding: 25px;
+	padding-top: 0;
+}
+
+div#settings > div + div {
+	border-left: 1px dashed var(--accent-color);
+}
+
+body#edit div#settings {
+	display: flex;
+}
+
+div#settings label {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+div#settings label + label {
+	margin-top: 6px;
+}
+
+div#settings input {
+	opacity: 0;
+	width: 0;
+	position: absolute;
+}
+
+div#settings input[type=radio] + span {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background-color: var(--foreground-color);
+	vertical-align: middle;
+	border-radius: 30px;
+}
+
+div#settings input[type=checkbox] + span {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background-color: var(--foreground-color);
+	vertical-align: middle;
+}
+
+div#settings input[type=radio]:checked + span, div#settings input[type=checkbox]:checked + span {
+	background-color: var(--accent-color);
+}
+
+div#settings input[type=color] + span {
+	height: 30px;
+	width: 30px;
+	border: 3px solid var(--accent-color);
+	display: inline-block;
+	vertical-align: middle;
+}
+
+div#settings button, div#settings input[type=file] {
+	cursor: pointer;
+}
+
+div#settings button, div#settings input[type=file] + span {
+	font-family: monospace;
+	text-align: left;
+	font-size: 12px;
+	margin: 0;
+	box-sizing: border-box;
+	background-color: var(--accent-color);
+	color: var(--background-color);
+	display: block;
+	border: none;
+	padding: 15px;
+	width: 100%;
+	min-width: 150px;
+	cursor: pointer;
+	border: 3px solid var(--background-color);
+}
+div#settings button:hover, div#settings input[type=file] + span:hover, div#settings input[type=file]:hover + span {
+	border-color: var(--accent-color);
+	cursor: pointer;
+}

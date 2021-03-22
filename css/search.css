@@ -1,0 +1,31 @@
+
+form#search {
+	position: fixed;
+	z-index: 50;
+	background-color: var(--background-color);
+	width: 100vw;
+	height: 100vh;
+	top: 0; left: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: .4s opacity;
+}
+
+form#search.visible {
+	opacity: 1;
+	pointer-events: all;
+}
+
+form#search input {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	width: 100%;
+	border: none;
+	font-size: 5em;
+	padding: 1em;
+	color: var(--accent-color);
+	background-color: rgba(0,0,0,.1);
+	box-sizing: border-box;
+}

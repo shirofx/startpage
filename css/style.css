@@ -1,0 +1,188 @@
+
+@font-face {
+	/* 
+	Copyright 2011 The Montserrat Project Authors(https://github.com/JulietaUla/Montserrat)
+
+	This Font Software is licensed under the SIL Open Font License, Version 1.1.
+	This license is included in the file "../font/SIL Open Font License.txt",
+	and is also available with a FAQ at: http://scripts.sil.org/OFL
+	*/
+	src: url(../font/Montserrat-Light.otf);
+	font-family: Montserrat;
+}
+
+body {
+	margin: 0;
+	font-family: monospace;
+	color: var(--accent-color);
+	user-select: none;
+}
+
+img#cute {
+	position: absolute;
+	right: 25px;
+	top: 100px;
+	width: 400px;
+	display: none;
+}
+
+section#data {
+	position: fixed;
+	bottom: 0px; right: 0px;
+	padding: 15px 25px;
+	text-align: right;
+	max-width: 50vw;
+	color: var(--foreground-color);
+}
+
+main {
+	z-index: 10;
+	border: 1px dashed transparent;
+	position: relative;
+	width: 800px;
+	height: 100vh;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+body#edit > main {
+	border: 1px dashed var(--accent-color);
+}
+
+main > section {
+	font: 24px Montserrat, monospace;
+	border: 5px dashed;
+	border-color: var(--foreground-color);
+	padding: 15px;
+	margin: 15px;
+	width: 350px;
+	box-sizing: border-box;
+	transition: .1s all;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+}
+main > section:after {
+	content: attr(title);
+	font: bold 16px monospace;
+	color: var(--foreground-color);
+	border: inherit;
+	border-color: transparent;
+	position: absolute;
+	transform-origin: 0% 0%;
+	transform: rotate(90deg);
+	left: 0; top: 0;
+}
+.open {
+	background-color: var(--foreground-color);
+	border-color: var(--background-color);
+	transform: scale(1.1);
+}
+
+.open > * {
+	pointer-events: none;
+}
+span.actions {
+	display: none;
+	position: absolute;
+	top: -.7em;
+	right: -.5em;
+}
+main > span.actions {
+	font-size: 3em;
+	top: 5px;
+}
+body#edit span.actions {
+	display: block;
+}
+span.actions button {
+	font-size: 1.2em;
+	width: 1em;
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+	text-align: center;
+	color: var(--accent-color);
+	display: none;
+}
+span.actions button {
+	display: block;
+}
+
+button#cog {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background: none;
+	border: none;
+	font-size: 3em;
+	cursor: pointer;
+	z-index: 40;
+	color: var(--foreground-color);
+}
+body#edit button#cog {
+	color: var(--accent-color);
+}
+
+main > section > a {
+	text-transform: uppercase;
+	background-color: var(--foreground-color);
+	font-size: 2em;
+	text-decoration: none;
+	word-wrap: break-word;
+	color: var(--background-color);
+	display: block;
+	line-height: .7em;
+	padding: 0 0px;
+	overflow: hidden;
+	border-left: 0px solid;
+	border-color: var(--background-color);
+	min-height: .7em;
+	position: relative;
+}
+main > section.open > a {
+	border-color: var(--foreground-color);
+}
+main > section > a:hover {
+	color: var(--accent-color);
+	/*
+	text-shadow: 0 0 5px white;
+	why this looks so good in my head then so stupid in reality
+	*/
+}
+main#disabled a {
+	pointer-events: none;
+}
+main > section > a#flying {
+	opacity: .5;
+}
+main > div#bin {
+	border: 1px dashed var(--accent-color);
+	position: absolute;
+	padding: 30px;
+	right: 15px;
+	bottom: 15px;
+	display: block;
+	font-family: monospace;
+	font-size: 11px;
+	font-weight: bold;
+	color: var(--accent-color);
+	background-color: var(--background-color);
+	z-index: 100;
+	display: none;
+}
+body#edit main > div#bin {
+	display: block;
+}
+/*
+main > section.open > a {
+	pointer-events: none; this works like crap
+}
+*/
+main > section > a + a {
+	margin-top: 5px;
+}
+
+form#dialog > label {
+	display: block;
+}

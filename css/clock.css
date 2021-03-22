@@ -1,0 +1,144 @@
+
+div#clock {
+	font-size: 6em;
+	max-width: 4.6em;
+	margin: 0 0 0 auto;
+	color: var(--accent-color);
+	font-family: Montserrat, Helvetica, sans-serif;
+	display: flex;
+	line-height: 1em;
+	justify-content: right;
+	position: relative;
+}
+
+div#clock:after {
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+div#clock.metal:after {
+	background: linear-gradient(to bottom, var(--background-color) 0%, transparent 40% 60%, var(--background-color));
+	/* Thanks Obama */
+}
+div#clock.fade:after {
+	background: linear-gradient(to bottom, var(--background-color) 0%, transparent 15% 85%, var(--background-color));
+	/* Thanks Obama */
+}
+
+div#clock > span {
+	display: flex;
+	overflow: hidden;
+}
+
+div#clock > span > span {
+	text-align: center;
+	word-wrap: break-word;
+	max-width: .7em;
+	max-height: 1em;
+	display: inline-block;
+	word-break: break-all;
+}
+
+@keyframes dec {
+	0%   {transform: translateY(0em)}
+	9%   {transform: translateY(0em)}
+	10%  {transform: translateY(-1em)}
+	19%  {transform: translateY(-1em)}
+	20%  {transform: translateY(-2em)}
+	29%  {transform: translateY(-2em)}
+	30%  {transform: translateY(-3em)}
+	39%  {transform: translateY(-3em)}
+	40%  {transform: translateY(-4em)}
+	49%  {transform: translateY(-4em)}
+	50%  {transform: translateY(-5em)}
+	59%  {transform: translateY(-5em)}
+	60%  {transform: translateY(-6em)}
+	69%  {transform: translateY(-6em)}
+	70%  {transform: translateY(-7em)}
+	79%  {transform: translateY(-7em)}
+	80%  {transform: translateY(-8em)}
+	89%  {transform: translateY(-8em)}
+	90%  {transform: translateY(-9em)}
+	99%  {transform: translateY(-9em)}
+	100% {transform: translateY(-10em)}
+}
+
+/* Repeating this is not my fault, is humanity's fault */
+@keyframes dec_fast {
+	0%    {transform: translateY(0em)}
+	9.99% {transform: translateY(0em)}
+	10%   {transform: translateY(-1em)}
+	19.99%{transform: translateY(-1em)}
+	20%   {transform: translateY(-2em)}
+	29.99%{transform: translateY(-2em)}
+	30%   {transform: translateY(-3em)}
+	39.99%{transform: translateY(-3em)}
+	40%   {transform: translateY(-4em)}
+	49.99%{transform: translateY(-4em)}
+	50%   {transform: translateY(-5em)}
+	59.99%{transform: translateY(-5em)}
+	60%   {transform: translateY(-6em)}
+	69.99%{transform: translateY(-6em)}
+	70%   {transform: translateY(-7em)}
+	79.99%{transform: translateY(-7em)}
+	80%   {transform: translateY(-8em)}
+	89.99%{transform: translateY(-8em)}
+	90%   {transform: translateY(-9em)}
+	99.99%{transform: translateY(-9em)}
+	100%  {transform: translateY(-10em)}
+}
+
+@keyframes hex {
+	0%    {transform: translateY(0em)}
+	16.3% {transform: translateY(0em)}
+	16.6% {transform: translateY(-1em)}
+	33%   {transform: translateY(-1em)}
+	33.3% {transform: translateY(-2em)}
+	49.7% {transform: translateY(-2em)}
+	50.0% {transform: translateY(-3em)}
+	66.3% {transform: translateY(-3em)}
+	66.6% {transform: translateY(-4em)}
+	83%   {transform: translateY(-4em)}
+	83.3% {transform: translateY(-5em)}
+	99.7% {transform: translateY(-5em)}
+	100%  {transform: translateY(-6em)}
+}
+
+@keyframes tri {
+	0%    {transform: translateY(0em)}
+	41.65%{transform: translateY(0em)}
+	41.66% {transform: translateY(-1em)} /* 10*100/24 */
+	83.32%{transform: translateY(-1em)}
+	83.33% {transform: translateY(-2em)} /* 20*100/24 */
+	99.99%{transform: translateY(-2em)}
+	100%  {transform: translateY(-3em)}
+}
+
+/* SECONDS */
+div#clock span#seconds span:nth-child(1) {
+	transform: translateY(-1em);
+	animation: 60s hex infinite;
+}
+div#clock span#seconds span:nth-child(2) {
+	transform: translateY(-1em);
+	animation: 10s dec infinite;
+}
+/* MINUTES */
+div#clock span#minutes span:nth-child(1) {
+	transform: translateY(-1em);
+	animation: 3600s hex infinite;
+}
+div#clock span#minutes span:nth-child(2) {
+	transform: translateY(-1em);
+	animation: 600s dec infinite;
+}
+/* HOURS */
+div#clock span#hours span:nth-child(1) {
+	transform: translateY(-1em);
+	animation: 86400s tri infinite;
+}
+div#clock span#hours span:nth-child(2) {
+	transform: translateY(-1em);
+	animation: 36000s dec_fast infinite;
+}
